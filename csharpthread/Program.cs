@@ -6,8 +6,6 @@ namespace CSharpThread
 {
     static class Program
     {
-        private static int _counter;
-
         private static async Task Main(string[] args)
         {
             Console.WriteLine("C sharp M-Threads!");
@@ -23,10 +21,11 @@ namespace CSharpThread
 
             await Task.Run(() =>
                 {
-                    while (_counter < 10)
+                    var counter=0;
+                    while (counter < 10)
                     {
-                        Console.WriteLine(Thread.CurrentThread.ManagedThreadId + "a-thd:" + _counter);
-                        _counter++;
+                        Console.WriteLine(Thread.CurrentThread.ManagedThreadId + "a-thd:" + counter);
+                        counter++;
                     }
                 }
             );
